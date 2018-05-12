@@ -52,26 +52,6 @@ void inicializarPersonasHardCode(EPersona personas[])
     }
 }
 
-int mostrarListadoDePersonas(EPersona personas[], int cantidad)
-{
-    int i;
-    int retorno=-2;
-
-    printf("%s\t\t %s\t\t %s\t\n","\nNombre","Edad", "DNI");
-
-/**< Recorre el listado y si el estado es distinto de OCUPADO lo muestra */
-    for(i=0; i<cantidad; i++)
-    {
-        retorno=-1;
-        if(personas[i].estado==OCUPADO)
-        {
-            retorno=0;
-            printf("%s\t\t %d\t\t %ld\t\n", personas[i].nombre, personas[i].edad, personas[i].dni);
-        }
-    }
-    return retorno;
-}
-
 int obtenerEspacioLibre(EPersona personas[], int limite)
 {
     int retorno = -2;
@@ -89,6 +69,11 @@ int obtenerEspacioLibre(EPersona personas[], int limite)
             }
         }
     }
+
+    if(retorno<0)
+    {
+        printf("No hay lugar libre\n");
+    }
     return retorno;
 }
 
@@ -101,7 +86,6 @@ void getString(char mensaje[], char input[])
 void getValidString(char mensaje[], char error[], char input[], int limite)
 {
     int j;
-    char auxString[limite+200]; //por si se pasa
 
     getString(mensaje, input);
 
@@ -110,13 +94,12 @@ void getValidString(char mensaje[], char error[], char input[], int limite)
     while (j>= limite)
     {
         printf("Ha ingresado %d caracteres\n %s", j, error);
+        system("pause");
         getString(mensaje, input);
 
         j= strlen(input);
-
     }
-
-    strcpy(auxString, input);
+     printf("El nombre ingresado es: %s", input);
 }
 
 void pedirNumEntero(char mensaje[], int numero)
@@ -145,23 +128,43 @@ int altaDePersona(EPersona personas[],int limite)
         retorno=-2;
         index= obtenerEspacioLibre(personas, limite);
 
-        if(index> 0)
+        if(index>= 0)//HAY LUGAR
         {
             getValidString("Ingrese nombre: \n", "Ha superado el maximo. ", nombre, 50);
             strcpy(personas[index].nombre, nombre);
             pedirNumEntero("Ingrese edad: \n", edad);
             personas[index].edad = edad;
-            pedirNumEnteroLong("Ingrese DNI", dni);
+            pedirNumEnteroLong("Ingrese DNI: \n", dni);
             personas[index].dni = dni;
             personas[index].estado = OCUPADO;
             retorno = 0;
         }
-        if(index< 0)
+        else
         {
             printf("\n No hay lugar para cargar personas");
         }
     }
 
+    return retorno;
+}
+
+int mostrarListadoDePersonas(EPersona personas[], int cantidad)
+{
+    int i;
+    int retorno=-2;
+
+    printf("%s\t\t %s\t\t %s\t\n","\nNombre","Edad", "DNI");
+
+/**< Recorre el listado y si el estado es distinto de OCUPADO lo muestra */
+    for(i=0; i<cantidad; i++)
+    {
+        retorno=-1;
+        if(personas[i].estado==OCUPADO)
+        {
+            retorno=0;
+            printf("%s\t\t %d\t\t %ld\t\n", personas[i].nombre, personas[i].edad, personas[i].dni);
+        }
+    }
     return retorno;
 }
 
