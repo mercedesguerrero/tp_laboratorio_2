@@ -81,6 +81,7 @@ void getString(char mensaje[], char input[])
 {
     printf("%s", mensaje);
     scanf("%s", input);
+    fflush(stdin);
 }
 
 void getValidString(char mensaje[], char error[], char input[], int limite)
@@ -104,14 +105,14 @@ void getValidString(char mensaje[], char error[], char input[], int limite)
 
 void pedirNumEntero(char mensaje[], int numero)
 {
-    printf("Mensaje");
-    scanf("%d", numero);
+    printf("%s", mensaje);
+    scanf("%d", &numero);
 }
 
 void pedirNumEnteroLong(char mensaje[], int long numero)
 {
-    printf("Mensaje");
-    scanf("%dl", numero);
+    printf("%s", mensaje);
+    scanf("%dl", &numero);
 }
 
 

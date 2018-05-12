@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1526154670 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.c
+1526155187 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,7 +7,7 @@
 
 1526131197 c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.h
 
-1526154380 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\main.c
+1526155418 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

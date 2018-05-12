@@ -12,8 +12,8 @@ int main()
     /**< Array lista de personas */
     EPersona listaDePersonas[TAMPERSONA];
 
-    inicializarPersonasHardCode(listaDePersonas);
     inicializarPersonasEstado(listaDePersonas, TAMPERSONA);
+    inicializarPersonasHardCode(listaDePersonas);
 
     char seguir='s';
     int opcion=0;
