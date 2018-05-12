@@ -88,31 +88,39 @@ void getValidString(char mensaje[], char error[], char input[], int limite)
 {
     int j;
 
-    getString(mensaje, input);
-
-    j= strlen(input);
-
-    while (j>= limite)
+    do
     {
-        printf("Ha ingresado %d caracteres\n %s", j, error);
-        system("pause");
         getString(mensaje, input);
 
         j= strlen(input);
-    }
-     printf("El nombre ingresado es: %s", input);
+
+        if(j>= limite)
+        {
+            printf("%s", error);
+        }
+
+    }while(j>= limite);
+
 }
 
-void pedirNumEntero(char mensaje[], int numero)
+int pedirNumEntero(char mensaje[])
 {
+    int numeroEntero;
+
     printf("%s", mensaje);
-    scanf("%d", &numero);
+    scanf("%d", &numeroEntero);
+
+    return numeroEntero;
 }
 
-void pedirNumEnteroLong(char mensaje[], int long numero)
+int pedirNumEnteroLong(char mensaje[])
 {
+    int numeroLong;
+
     printf("%s", mensaje);
-    scanf("%dl", &numero);
+    scanf("%dl", &numeroLong);
+
+    return numeroLong;
 }
 
 
@@ -131,11 +139,11 @@ int altaDePersona(EPersona personas[],int limite)
 
         if(index>= 0)//HAY LUGAR
         {
-            getValidString("Ingrese nombre: \n", "Ha superado el maximo. ", nombre, 50);
+            getValidString("Ingrese nombre: \n", "El nombre ingresado es muy largo, reingrese", nombre, 50);
             strcpy(personas[index].nombre, nombre);
-            pedirNumEntero("Ingrese edad: \n", edad);
+            edad= pedirNumEntero("Ingrese edad: \n");
             personas[index].edad = edad;
-            pedirNumEnteroLong("Ingrese DNI: \n", dni);
+            dni= pedirNumEnteroLong("Ingrese DNI: \n");
             personas[index].dni = dni;
             personas[index].estado = OCUPADO;
             retorno = 0;

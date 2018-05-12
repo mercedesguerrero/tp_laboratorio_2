@@ -1,7 +1,6 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-#define TAM 10
 #define OCUPADO 1
 #define LIBRE 0
 #define CANTIDAD 20
@@ -34,8 +33,8 @@ int altaDePersona(EPersona[], int cantidad);
 
 void getString(char mensaje[], char input[]);
 void getValidString(char mensaje[], char error[], char input[], int limite);
-void pedirNumEntero(char mensaje[], int numero);
-void pedirNumEnteroLong(char mensaje[], int long numero);
+int pedirNumEntero(char mensaje[]);
+int pedirNumEnteroLong(char mensaje[]);
 
 /**
  * Obtiene el indice que coincide con el dni pasado por parametro.
