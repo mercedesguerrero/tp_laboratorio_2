@@ -3,7 +3,6 @@
 #include <string.h>
 #include "funciones.h"
 
-
 #define TAMPERSONA 20
 
 
@@ -25,8 +24,7 @@ int main()
         switch(opcion)
         {
             case 1:
-                printf("\nALTA DE USUARIO \n");
-                //EPersona_alta(listaDePersonas, TAMUSUARIO);
+                altaDePersona(listaDePersonas, TAMPERSONA);
                 presionarContinuar();
                 break;
             case 2:
