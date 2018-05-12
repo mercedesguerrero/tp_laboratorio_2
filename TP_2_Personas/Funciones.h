@@ -1,14 +1,24 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
+#define TAM 10
+#define OCUPADO 1
+#define LIBRE 0
+#define CANTIDAD 20
+
 typedef struct {
 
-    char nombre[50];
+    char nombre[40];
     int edad;
+    long int dni;
     int estado;
-    int dni;
 
 }EPersona;
+
+void inicializarPersonasEstado(EPersona[], int cantidad);
+void inicializarPersonasHardCode(EPersona[]);
+
+void mostrarListadoDePersonas(EPersona[], int cantidad);
 
 /**
  * Obtiene el primer indice libre del array.

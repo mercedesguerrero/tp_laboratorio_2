@@ -1,38 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "funciones.h"
+
+
+#define TAMPERSONA 20
 
 
 int main()
 {
+    /**< Array lista de personas */
+    EPersona listaDePersonas[TAMPERSONA];
+
+    inicializarPersonasHardCode(listaDePersonas);
+
     char seguir='s';
     int opcion=0;
 
-    while(seguir=='s')
+    do
     {
-        printf("1- Agregar persona\n");
-        printf("2- Borrar persona\n");
-        printf("3- Imprimir lista ordenada por  nombre\n");
-        printf("4- Imprimir grafico de edades\n\n");
-        printf("5- Salir\n");
-
+        mostrarMenu();
         scanf("%d",&opcion);
 
         switch(opcion)
         {
             case 1:
+                printf("\nALTA DE USUARIO \n");
+                //EPersona_alta(listaDePersonas, TAMUSUARIO);
+                presionarContinuar();
                 break;
             case 2:
+
+                printf("\nMODIFICAR DATOS DEL USUARIO \n");
+                presionarContinuar();
                 break;
             case 3:
+                mostrarListadoDePersonas(listaDePersonas, TAMPERSONA);
+                presionarContinuar();
                 break;
             case 4:
+                printf("\nPUBLICAR PRODUCTO \n");
+                presionarContinuar();
                 break;
             case 5:
                 seguir = 'n';
                 break;
         }
-    }
+    }while(seguir=='s');
 
     return 0;
 }
