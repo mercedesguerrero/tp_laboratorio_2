@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1526160374 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.c
+1526353187 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"funciones.h"
 
-1526160244 c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.h
+1526169296 c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\funciones.h
 
-1526155418 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\main.c
+1526169483 source:c:\users\mechu\documents\tp_laboratorio_2\tp_2_personas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

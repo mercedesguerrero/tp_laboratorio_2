@@ -12,7 +12,7 @@ void mostrarMenu()
     printf("1- Agregar una persona \n");
     printf("2- Borrar una persona\n");
     printf("3- Imprimir lista ordenada por nombre\n");
-    printf("4- Imprimir gráfico de edades\n");
+    printf("4- Imprimir grafico de edades\n");
     printf("5- Salir\n");
 
     printf("\nLa opcion es: ");
@@ -27,7 +27,7 @@ void presionarContinuar()
 
 void inicializarPersonasEstado(EPersona personas[], int limite)
 {
-     int i;
+    int i;
 
     for(i=0; i<limite; i++)
     {
@@ -139,7 +139,7 @@ int altaDePersona(EPersona personas[],int limite)
 
         if(index>= 0)//HAY LUGAR
         {
-            getValidString("Ingrese nombre: \n", "El nombre ingresado es muy largo, reingrese", nombre, 50);
+            getValidString("Ingrese nombre: \n", "El nombre ingresado es muy largo, reingrese\n", nombre, 50);
             strcpy(personas[index].nombre, nombre);
             edad= pedirNumEntero("Ingrese edad: \n");
             personas[index].edad = edad;
@@ -157,7 +157,7 @@ int altaDePersona(EPersona personas[],int limite)
     return retorno;
 }
 
-int mostrarListadoDePersonas(EPersona personas[], int cantidad)
+int mostrarListadoDePersonas(EPersona personas[], int limite)
 {
     int i;
     int retorno=-2;
@@ -165,7 +165,7 @@ int mostrarListadoDePersonas(EPersona personas[], int cantidad)
     printf("%s\t\t %s\t\t %s\t\n","\nNombre","Edad", "DNI");
 
 /**< Recorre el listado y si el estado es distinto de OCUPADO lo muestra */
-    for(i=0; i<cantidad; i++)
+    for(i=0; i<limite; i++)
     {
         retorno=-1;
         if(personas[i].estado==OCUPADO)
@@ -176,4 +176,35 @@ int mostrarListadoDePersonas(EPersona personas[], int cantidad)
     }
     return retorno;
 }
+
+int borrarUnaPersona(EPersona personas[], int limite)
+{
+    int i;
+    long int DniABuscar;
+    int retorno= -1;
+
+    mostrarListadoDePersonas(personas, CANTIDAD);
+
+    if(mostrarListadoDePersonas(personas, limite)==0)
+       {
+            //mostrarListadoDePersonas(personas, limite);
+
+            printf("Ingrese DNI de la persona que desea borrar");
+            scanf("%dl", &DniABuscar);
+            retorno= -2;
+
+            for(i=0; i<limite; i++)
+            {
+                retorno= -3;
+                if(personas[i].estado == OCUPADO && personas[i].dni == DniABuscar)
+                {
+                    personas[i].dni= 0;
+                    personas[i].estado== LIBRE;
+                }
+            }
+       }
+
+    return retorno;
+}
+
 

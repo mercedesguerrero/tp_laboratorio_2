@@ -20,7 +20,7 @@ void inicializarPersonasHardCode(EPersona[]);
 void mostrarMenu();
 void presionarContinuar();
 
-int mostrarListadoDePersonas(EPersona[], int cantidad);
+int mostrarListadoDePersonas(EPersona[], int limite);
 
 /**
  * Obtiene el primer indice libre del array.
@@ -42,7 +42,10 @@ int pedirNumEnteroLong(char mensaje[]);
  * @param dni el dni a ser buscado en el array.
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
  */
-int buscarPorDni(EPersona lista[], int dni);
+int buscarPorDni(EPersona listaDePersonas[], long int dni, int limite);
+
+
+int borrarUnaPersona(EPersona[], int limite);
 
 
 #endif // FUNCIONES_H_INCLUDED

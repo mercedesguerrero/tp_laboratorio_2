@@ -17,7 +17,6 @@ int main()
 
     char seguir='s';
     int opcion=0;
-    char nombre[10];
 
     do
     {
@@ -31,8 +30,7 @@ int main()
                 presionarContinuar();
                 break;
             case 2:
-
-                printf("\nMODIFICAR DATOS DEL USUARIO \n");
+                borrarUnaPersona(listaDePersonas, TAMPERSONA);
                 presionarContinuar();
                 break;
             case 3:
@@ -40,7 +38,7 @@ int main()
                 presionarContinuar();
                 break;
             case 4:
-                //printf("\nPUBLICAR PRODUCTO \n");
+
                 presionarContinuar();
                 break;
             case 5:
